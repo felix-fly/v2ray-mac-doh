@@ -1,6 +1,6 @@
 # v2ray-mac-doh
 
-此方案是在[v2ray-mac](../v2ray-mac)基础上改进而来的，加入了dnsmasq及doh，将任务进行拆分，dnsmasq处理解析及广告屏蔽，doh预防污染，v2ray只处理流量转送。
+此方案是在[v2ray-mac](/felix-fly/v2ray-mac)基础上改进而来的，加入了dnsmasq及doh，将任务进行拆分，dnsmasq处理解析及广告屏蔽，doh预防污染，v2ray只处理流量转送。
 
 ## 安装及配置dnsmasq
 ```shell
@@ -17,7 +17,7 @@ no-resolv
 conf-dir=/path-to-dnsmasq-config/,*.hosts
 cache-size=1000
 ```
-修改**ISP_DNS**为当地DNS或者其他公共DNS地址
+修改**ISP_DNS**为当地DNS或者其他公共DNS地址，修改conf-dir指向ad.hosts和gw.hosts文件所在目录
 ```shell
 brew services restart dnsmasq
 ```
@@ -60,4 +60,4 @@ sudo cloudflared service install
 ./start.sh
 ```
 
-配置v2ray开机自启动可以参考[v2ray-mac](../v2ray-mac)，不再重复。
+配置v2ray开机自启动可以参考[v2ray-mac](/felix-fly/v2ray-mac)，不再重复。
