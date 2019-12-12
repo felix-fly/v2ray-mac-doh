@@ -1,6 +1,5 @@
 {
   "log": {
-    "access": "./access.log",
     "error": "./error.log",
     "loglevel": "warning"
   },
@@ -27,10 +26,6 @@
       "security": "tls",
       "wsSettings" : {
         "path" : "\/==YOUR ENTRY PATH==\/"
-      },
-      "tlsSettings" : {
-        "serverName" : "==YOUR DOMAIN or SERVER ADDRESS==",
-        "allowInsecure" : true
       }
     }
   }]
