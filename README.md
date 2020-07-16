@@ -3,13 +3,13 @@
 此方案是在[v2ray-mac](https://github.com/felix-fly/v2ray-mac)基础上改进而来的，加入了dnsmasq及doh，将任务进行拆分，dnsmasq处理解析及广告屏蔽，doh预防污染，v2ray只处理流量转送。
 
 ## 安装及配置dnsmasq
-```shell
+```bash
 brew install dnsmasq
 ```
-```shell
+```bash
 vi /usr/local/etc/dnsmasq.conf
 ```
-```shell
+```bash
 port=53
 server=ISP_DNS
 listen-address=0.0.0.0
@@ -18,7 +18,7 @@ conf-dir=/path-to-dnsmasq-config/,*.hosts
 cache-size=1000
 ```
 修改**ISP_DNS**为当地DNS或者其他公共DNS地址，修改conf-dir指向ad.hosts和gw.hosts文件所在目录
-```shell
+```bash
 brew services restart dnsmasq
 ```
 
@@ -28,10 +28,10 @@ mac上可以通过安装cloudflared来实现doh client的功能
 
 [官方安装文档](https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/)
 
-```shell
+```bash
 curl https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-darwin-amd64.tgz | tar xzC /usr/local/bin
 ```
-```shell
+```bash
 mkdir -p /usr/local/etc/cloudflared
 cat << EOF > /usr/local/etc/cloudflared/config.yml
 proxy-dns: true
@@ -44,7 +44,7 @@ EOF
 * 东亚: ea-dns.rubyfish.cn
 * 美国西部: uw-dns.rubyfish.cn
 建议使用自建的，和v2ray同server可以享受到cdn加速的效果
-```shell
+```bash
 sudo cloudflared service install
 ```
 
@@ -56,7 +56,7 @@ sudo cloudflared service install
 
 正确的话就可以启动v2ray了
 
-```shell
+```bash
 ./start.sh
 ```
 
